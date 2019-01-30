@@ -11,14 +11,25 @@
     <img class="card-img-top" src="{{restaurant.logo.url}}" alt="Hey Noob, look at me...">
   {% endif %}
   <div class="card-body">
+            <div class="col-md-6">
+            <a href="{% url 'item-create' restaurant.id %}" class="btn btn-outline-primary btn-block">Create Item</a>
+        </div>
     <h5 class="card-title">{{restaurant.name}}</h5>
     <p class="card-text">{{restaurant.description|linebreaks}}</p>
     <p class="card-text">Opening Time: {{restaurant.opening_time}}</p>
     <p class="card-text">Closing Time: {{restaurant.closing_time}}</p>
+    <p class="card-text"> My Items List:
+      <ul>
+        {%for item in items%}
+        <li> {{item.name}}  -- {{item.price}} </li>
+        {% endfor %}
+      </ul>
+    </p>
     <div class="row text-center">
         <div class="col-md-6">
             <a href="{% url 'restaurant-update' restaurant.id %}" class="btn btn-outline-primary btn-block">Update</a>
         </div>
+
         <div class="col-md-6">
             <a href="{% url 'restaurant-delete' restaurant.id %}" class="btn btn-outline-danger btn-block">Delete</a>
         </div>
