@@ -85,7 +85,7 @@ def item_create(request,restaurant_id):
             item.save()
             
 
-            return redirect('restaurant-detail') 
+            return redirect('restaurant-detail', restaurant_id) 
 
     context = {
         "form":form,
