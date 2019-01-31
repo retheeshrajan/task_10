@@ -21,7 +21,9 @@
     <p class="card-text"> My Items List:
       <ul>
         {%for item in items%}
-        <li> {{item.name}}  -- {{item.price}} </li>
+          <li> {{item.name}} </li>
+          <li> {{item.description}} </li>
+          <li> {{item.price}}</li>
         {% endfor %}
       </ul>
     </p>
